@@ -1,9 +1,4 @@
 function init --on-event init_bundler
-  if test -z (which bundle ^ /dev/null)
-    echo "bundler: Install bundle first!"
-    return 1
-  end
-
   set -l execs annotate      \
                cap           \
                capify        \
@@ -57,7 +52,11 @@ function init --on-event init_bundler
   end
 
   function __is_a_bundled_executable
-    set -l bindir (command bundle exec ruby -e "puts Gem.bindir")
-    test -f "$bindir/$argv"
+    if available bundle
+      set -l bindir (command bundle exec ruby -e "puts Gem.bindir")
+      test -f "$bindir/$argv"
+    else
+      return 1
+    end
   end
 end
