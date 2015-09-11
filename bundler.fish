@@ -42,21 +42,4 @@ function init --on-event init_bundler
       end
     end
   end
-
-  function __execute_as_bundler
-    if __is_a_bundled_executable $argv[1]
-      command bundle exec $argv
-    else
-      eval command $argv
-    end
-  end
-
-  function __is_a_bundled_executable
-    if available bundle
-      set -l bindir (command bundle exec ruby -e "puts Gem.bindir")
-      test -f "$bindir/$argv"
-    else
-      return 1
-    end
-  end
 end
