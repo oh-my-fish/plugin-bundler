@@ -35,10 +35,10 @@ function init --on-event init_bundler
 
   for executable in $execs
     if test -z "$do_eval"
-      eval "function $executable; __execute_as_bundler $executable \$argv; end"
+      eval "function $executable; _execute_as_bundler $executable \$argv; end"
     else
       function $executable --inherit-variable executable
-        __execute_as_bundler $executable $argv
+        _execute_as_bundler $executable $argv
       end
     end
   end
