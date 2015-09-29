@@ -20,7 +20,6 @@ Default calls
  * capify
  * cucumber
  * dashing
- * foreman
  * guard
  * kitchen
  * middleman
@@ -67,7 +66,7 @@ $ guard -i
 or
 
 ```fish
-$ foreman start
+$ ruby -v
 ```
 
 License

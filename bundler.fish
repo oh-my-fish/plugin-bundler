@@ -4,7 +4,6 @@ function init --on-event init_bundler
                capify        \
                cucumber      \
                dashing       \
-               foreman       \
                guard         \
                kitchen       \
                middleman     \
