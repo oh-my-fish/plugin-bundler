@@ -1,5 +1,5 @@
 function __is_a_bundled_executable
-  if available bundle
+  if type -q bundle
     set -l bindir (command bundle exec ruby -e "puts Gem.bindir")
     test -f "$bindir/$argv"
   else
